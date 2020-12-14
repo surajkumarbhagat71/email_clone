@@ -1,0 +1,23 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+    <div class="container-fluid mt-3">
+        <div class="row no-gutters">
+            <div class="col-lg-8 mx-auto">
+                {% for x in sentmsg %}
+                        <div class="card">
+                            <div class="card-body">
+                                <table class="table mt-1">
+                                    <tr>
+                                        <td>{{ x.email_to.name }}</td>
+                                        <td>{{ x.subject }}</td>
+                                        <td><a href="{% url 'msgdetail' x.msg_id %}" class="btn btn-secondary btn-sm">View</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

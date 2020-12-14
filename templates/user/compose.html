@@ -1,0 +1,37 @@
+{% extends 'user/base.html' %}
+
+{% block content %}
+    <div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="card border-0 shadow-sm ">
+                <div class="card-body">
+                    <form action="{% url 'massege' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label>To</label>
+                            <input type="email" class="form-control" name="email_to" placeholder="email_to">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <textarea type="text" class="form-control" name="subject" placeholder="subject"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="file" value="file" name="file">
+                        </div>
+                        <div class="form-group">
+                            <input type="submit"  class="btn btn-success btn-block">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

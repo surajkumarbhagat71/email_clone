@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <a class="navbar-brand ml-5" href="{% url 'home' %}"><b>Emai</b></a>
+
+    <form class="form-inline  mx-auto">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" size="50" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+      <ul class="navbar-nav ml-auto mr-2 mt-2 mt-lg-0">
+          <li class="nav-item"><a href="{% url 'logout' %}" class="btn btn-danger btn-sm">Logout</a></li>
+
+      </ul>
+
+  </div>
+</nav>
+
+<div class="container-fluid p-0">
+    <div class="row no-gutters">
+        <div class="col-lg-3">
+            <a href="{% url 'massege' %}" class="btn btn-danger ml-5 mt-3" style="border-radius:30px;"> + Compose</a>
+             <div class="list-group mt-2">
+                 <a href="{% url 'inbox' %}" class="list-group list-group-item list-group-item-action">Inbox</a>
+                 <a href="{% url 'sent' %}" class="list-group list-group-item list-group-item-action">sent</a>
+                 <a href="" class="list-group list-group-item list-group-item-action">draft</a>
+             </div>
+        </div>
+        <div class="col-lg-8">{% block content  %} {% endblock %}</div>
+    </div>
+</div>
+
+</body>
+</html>
